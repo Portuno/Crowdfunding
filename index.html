@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATLAS Crowdfunding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="C:\Users\Usuario\Desktop\Apps\Crowdfunding\styles.css" rel="stylesheet">
+    <link href="C:\Users\Usuario\Desktop\Apps\Crowdfunding\app.js" rel="script">
+    <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
+<script src="app.js"></script>
+<body>
+    <nav class="flex justify-between items-center bg-gray-900 p-4" >
+        <a href="#" class="text-white">ATLAS Crowdfunding</a>
+        <div class="header">
+            <div class="relative z-20 flex items-center dark:bg-gray-800">
+            <a href="#metrics-section"  style="color: white; text-decoration: none; margin: 0 20px;">App</a>
+            <a href="#mint_nft_community-section" onclick="openNewWindow('file:///C:/Users/Usuario/Desktop/Apps/frontend_mint_nft/index.html')"; style="color: white; text-decoration: none; margin: 0 20px;">Mint NFT</a>
+            <a href="#swap-section" onclick="openNewWindow('file:///C:/Users/Usuario/Desktop/Apps/RAI_Swap/index.html')"; style="color: white; text-decoration: none; margin: 0 20px;">Swap</a>
+            <a href="#power_by-section" onclick="openNewWindow('file:///C:/Users/Usuario/Desktop/Apps/3.html')"; style="color: white; text-decoration: none; margin: 0 20px;">Power by</a>
+            <button id="metamask_button" onclick="initWeb3()" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">Connect Metamask</button>
+        </div>
+        <script>
+            function openNewWindow(url) {
+            // Abre una nueva ventana con la URL especificada
+            window.open(url);}
+        </script>
+    </nav>
+    <section>
+        <div class="relative z-20 flex items-center bg-white dark:bg-gray-800">
+            <div class="container relative flex flex-col items-center justify-between px-6 py-8 mx-auto">
+                <div class="flex flex-col">
+                    <h2 class="w-full max-w-2xl py-8 mx-auto text-xl font-light text-center text-gray-500 dark:text-white">
+                        Explore our Campaign Gallery: Discover a variety of exciting projects backed by the community on our Web3 crowdfunding platform. From technological innovations to creative initiatives and charitable causes, our gallery provides a window into the ideas and dreams shaping the future. Join us in supporting creators and entrepreneurs as we build a brighter tomorrow together in the new digital era.
+                    </h2>
+                    <div class="flex items-center justify-center mt-4">
+                        <!-- Botones con funcionalidad agregados -->
+                        <button id="btn-crear-ahora" class="px-4 py-2 mr-4 text-white uppercase bg-gray-800 border-2 border-transparent text-md hover:bg-gray-900">Create</button>
+                        <button id="btn-documentation" class="px-4 py-2 text-gray-800 uppercase bg-transparent border-2 border-gray-800 dark:text-white hover:bg-gray-800 hover:text-white text-md">Documentation</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-6 sm:py-12 dark:bg-gray-100 dark:text-gray-800" id="partnerships-section">
+        <div class="container p-6 mx-auto space-y-8">
+        <div class="space-y-2 text-center">
+            <h2 class="text-3xl font-bold">Active Campaigns</h2>
+            <p class="font-serif text-sm dark:text-gray-600">From cutting-edge technological innovations to creative ventures and philanthropic causes, our gallery showcases innovative ideas and impactful initiatives driving progress. Join us in supporting creators and entrepreneurs as we pave the way towards a digital landscape.</p>
+        </div>
+        <div class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+            <article class="flex flex-col dark:bg-gray-50">
+                <a rel="noopener noreferrer" href="#" aria-label="Renault Megane">
+                    <img alt="" class="object-cover w-full h-52 dark:bg-gray-500" src="https://source.unsplash.com/200x200/?fashion?1">
+                </a>
+                <div class="flex flex-col flex-1 p-6">
+                    <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">Mi primer auto</a>
+                    <h3 class="flex-1 py-2 text-lg font-semibold leading-snug"></h3>
+                    <button @click="donate(campaign.id)" class="button">Donate</button>
+                    <div class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
+                        <span>June 1, 2022</span>
+                        <span>9.1K views</span>
+                    </div>
+                </div>
+            </article>
+            <article class="flex flex-col dark:bg-gray-50">
+                <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
+                    <img alt="" class="object-cover w-full h-52 dark:bg-gray-500" src="https://source.unsplash.com/200x200/?fashion?1">
+                </a>
+                <div class="flex flex-col flex-1 p-6">
+                    <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">Estudios universitarios</a>
+                    <h3 class="flex-1 py-2 text-lg font-semibold leading-snug"></h3>
+                    <button @click="donate(campaign.id)" class="button">Donate</button>
+                    <div class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
+                        <span>June 1, 2023</span>
+                        <span>1K views</span>
+                    </div>
+                </div>
+            </article>
+            <article class="flex flex-col dark:bg-gray-50">
+                <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
+                    <img alt="" class="object-cover w-full h-52 dark:bg-gray-500" src="https://source.unsplash.com/200x200/?fashion?1">
+                </a>
+                <div class="flex flex-col flex-1 p-6">
+                    <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">Salir de fiesta</a>
+                    <h3 class="flex-1 py-2 text-lg font-semibold leading-snug"></h3>
+                    <button @click="donate(campaign.id)" class="button">Donate</button>
+                    <div class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
+                        <span>June 1, 2020</span>
+                        <span>900 views</span>
+                    </div>
+                </div>
+            </article>
+            <article class="flex flex-col dark:bg-gray-50">
+                <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
+                    <img alt="" class="object-cover w-full h-52 dark:bg-gray-500" src="https://source.unsplash.com/200x200/?fashion?1">
+                </a>
+                <div class="flex flex-col flex-1 p-6">
+                    <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">Obtener mi primera vivienda</a>
+                    <h3 class="flex-1 py-2 text-lg font-semibold leading-snug"></h3>
+                    <button @click="donate(campaign.id)" class="button">Donate</button>
+                    <div class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
+                        <span>June 1, 2024</span>
+                        <span>24K views</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+     </div>
+</section>
+<!-- Esto es el js de esta seccion de galeria de imagenes , lo que esta arriba-->
+<section>
+    <section class="bg-white dark:bg-gray-900">
+        <div class="container px-6 py-10 mx-auto">
+            <div class="lg:-mx-6 lg:flex lg:items-center">
+                <img class="object-cover object-center lg:w-1/2 lg:mx-6 w-full h-96 rounded-lg lg:h-[36rem]" src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+                <div class="mt-8 lg:w-1/2 lg:px-6 lg:mt-0">
+                    <p class="text-5xl font-semibold text-blue-500 ">Our productivity...</p>
+                    <p class="max-w-lg mt-6 text-gray-500 dark:text-gray-400 ">
+                        "As a creator, I found an incredibly supportive community on this platform that helped make my dream a reality."
+                    </p>
+                    <h3 class="mt-6 text-lg font-medium text-blue-500">Mia Brown</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Founder</p>
+                    <div class="flex items-center justify-between mt-12 lg:justify-start">
+                        <button id="testimonio_button_left" title="left arrow" class="p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 hover:bg-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button id="testimonio_button_right" title="right arrow" class="p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 lg:mx-6 hover:bg-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br>
+</section>
+</section>
+<!-- Esto es el js de esta seccion de TESTIMONIOS , lo que esta arriba-->
+<section>
+    <section class="bg-white dark:bg-gray-900">
+    <div class="container px-6 py-12 mx-auto">
+        <h1 class="text-2xl font-semibold text-gray-800 lg:text-3xl dark:text-white">Frequently asked questions.</h1>
+        <div class="grid grid-cols-1 gap-8 mt-8 lg:mt-16 md:grid-cols-2 xl:grid-cols-3">
+            <div>
+                <div class="inline-block p-3 text-white bg-blue-600 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-semibold text-gray-700 dark:text-white">Que es el crowdfunding?</h1>
+                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
+                        El crowdfunding es un modelo de financiación colectiva que permite a individuos o empresas recaudar fondos para proyectos, productos o causas a través de la contribución de un gran número de personas, generalmente a través de plataformas en linea especializadas.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block p-3 text-white bg-blue-600 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-semibold text-gray-700 dark:text-white">What are the most common types of crowdfunding?</h1>
+                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
+                        The most common types of crowdfunding are:<br>Donations: People contribute to a cause without expecting a tangible reward.<br>Rewards: Contributors receive rewards or products in exchange for their financial support.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block p-3 text-white bg-blue-600 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-semibold text-gray-700 dark:text-white">What are the benefits of crowdfunding?</h1>
+                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
+                        Some benefits of crowdfunding include:<br>Access to funding without relying on traditional financial institutions.<br>Validation of interest in a project before its launch.<br>Opportunity to involve the community in the development process.<br>Potential to create connections and build a follower base.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block p-3 text-white bg-blue-600 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-semibold text-gray-700 dark:text-white">What are the risks associated with crowdfunding?</h1>
+                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
+                        Failing to reach the funding goal and losing time and resources.<br>Legal or intellectual property problems if not managed properly.<br>Responsibility towards backers to fulfill promises of rewards or products.<br>Possible unfair competition or idea copying by others.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block p-3 text-white bg-blue-600 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-semibold text-gray-700 dark:text-white">What happens if my crowdfunding campaign doesn't reach its funding goal?</h1>
+                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
+                        If your campaign doesn't reach its funding goal before the deadline, typically no charges are made to sponsors, and no funds are received. It's important to have a backup plan in case this happens, such as seeking alternative funding sources or adjusting the campaign strategy.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block p-3 text-white bg-blue-600 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-semibold text-gray-700 dark:text-white">How can I ensure that my crowdfunding campaign is successful?</h1>
+                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
+                        To increase the chances of success for your crowdfunding campaign, it is important to:<br>Research and plan your project thoroughly.<br>Set realistic and transparent funding goals.<br>Create an outgoing marketing strategy to promote your campaign.<br>Maintain clear and consistent communication with your followers and sponsors. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</section>
+<!-- Esto es el js de esta seccion de preguntas frecuentes, lo que esta arriba-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer class="relative bg-blueGray-200 pt-8 pb-6">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap text-left lg:text-left">
+            <div class="w-full lg:w-6/12 px-4">
+                <h4 class="text-3xl font-semibold text-blueGray-700">Let's keep in touch!</h4>
+                <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
+                    Find us on any of these platforms, we respond 1-2 business days.
+                </h5>
+                <div class="mt-6 lg:mb-0 mb-6">
+                    <button class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                        <i class="fab fa-facebook-square"></i>
+                    </button>
+                    <button class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                        <i class="fab fa-dribbble"></i>
+                    </button>
+                    <button class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                        <i class="fab fa-github"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+                <div class="flex flex-wrap items-top mb-6">
+                    <div class="w-full lg:w-4/12 px-4 ml-auto">
+                        <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful Links</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://www.creative-tim.com/presentation?ref=njs-profile">About Us</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://blog.creative-tim.com?ref=njs-profile">Blog</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://www.github.com/creativetimofficial?ref=njs-profile">Github</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-full lg:w-4/12 px-4">
+                        <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other Resources</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile">MIT License</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://creative-tim.com/terms?ref=njs-profile">Terms &amp; Conditions</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://creative-tim.com/privacy?ref=njs-profile">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://creative-tim.com/contact-us?ref=njs-profile">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-6 border-blueGray-300">
+        <div class="flex flex-wrap items-center md:justify-between justify-center">
+            <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+                <div class="text-sm text-blueGray-500 font-semibold py-1">
+                    Copyright � <span id="get-current-year">2024</span><a href="https://www.creative-tim.com/product/notus-js" class="text-blueGray-500 hover:text-gray-800" target="_blank"> DAO Altas Fund.
+                    <a href="https://www.creative-tim.com?ref=njs-profile" class="text-blueGray-500 hover:text-blueGray-800">Legosi</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
