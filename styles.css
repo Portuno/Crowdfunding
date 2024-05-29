@@ -1,138 +1,389 @@
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* Importar Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a202c; /* bg-gray-900 */
+    padding: 1rem; /* p-4 */
 }
 
-/* Estilos para el encabezado */
-.header {
-    background-color: #4a5568; /* Cambio de color de fondo */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
+.navbar-brand {
+    color: white;
 }
-.header h1 {
-    background-color: #4a5568; /* Cambio de color de fondo */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: blueviolet; /* Cambio de color de texto */
+
+.nav-links-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 20;
+    background-color: #63605f; /* dark:bg-gray-800 */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.metamask-button {
+    background-color: #4299e1; /* bg-blue-500 */
+    color: white;
+    font-weight: 600; /* font-semibold */
+    padding: 0.5rem 1rem; /* py-2 px-4 */
+    border-radius: 0.25rem; /* rounded */
+}
+
+.metamask-button:hover {
+    background-color: #3182ce; /* bg-blue-600 */
+}
+
+/* Existing CSS from the previous part */
+
+.campaign-gallery {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    background-color: var(--dark-bg, #2d3748); /* dark:bg-gray-800 */
+}
+
+.campaign-gallery .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem; /* py-8 */
+    padding-left: 1.5rem; /* px-6 */
+    padding-right: 1.5rem; /* px-6 */
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.campaign-gallery .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.campaign-gallery .description {
+    width: 100%;
+    
+    padding-top: 1rem; /* py-8 */
+    padding-bottom: 1rem; /* py-8 */
+    margin: 0 auto;
+    font-size: 1rem; /* text-xl */
+    font-weight: 300; /* font-light */
+    text-align: center;
+    color: #6b7280; /* text-gray-500 */
+    color: var(--dark-text, white); /* dark:text-white */
+}
+
+.campaign-gallery .button-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem; /* mt-4 */
+}
+
+.campaign-gallery .btn-create {
+    padding: 0.5rem 1rem; /* px-4 py-2 */
+    margin-right: 1rem; /* mr-4 */
+    text-transform: uppercase;
+    background-color: #1163f0; /* bg-gray-800 */
+    color: white;
+    border: 2px solid transparent;
+    font-size: 1rem; /* text-md */
+    cursor: pointer;
+}
+
+.campaign-gallery .btn-create:hover {
+    background-color: #0956f0; /* bg-gray-900 */
+}
+
+.campaign-gallery .btn-documentation {
+    padding: 0.5rem 1rem; /* px-4 py-2 */
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 2px solid #2d3748; /* border-gray-800 */
+    color: #2d3748; /* text-gray-800 */
+    color: var(--dark-text, white); /* dark:text-white */
+    font-size: 1rem; /* text-md */
+    cursor: pointer;
+}
+
+.campaign-gallery .btn-documentation:hover {
+    background-color: #4f7bc7; /* bg-gray-800 */
+    color: white;
+}
+
+
+.partnerships-section {
+    padding-top: 1.5rem; /* py-6 */
+    padding-bottom: 3rem; /* sm:py-12 */
+    background-color: #f7fafc; /* dark:bg-gray-100 */
+    color: #2d3748; /* dark:text-gray-800 */
+}
+
+.container {
+    padding: 1.5rem; /* p-6 */
+    margin-left: auto;
+    margin-right: auto;
+    space-y: 2rem; /* space-y-8 */
+}
+
+.text-center {
     text-align: center;
 }
-/* Estilos para las tarjetas de campa�a */
+.section-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+}
+.section-description {
+    font-family: Georgia, serif; /* font-serif */
+    font-size: 0.875rem; /* text-sm */
+    color: #718096; /* dark:text-gray-600 */
+}
+.donate{
+    background-color: red;
+}
+.campaigns-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem; /* gap-x-4 gap-y-8 */
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+    }
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */
+    }
+}
 .campaign-card {
-    background-color: #9b9b9b; /* Cambio de color de fondo */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7fafc; /* dark:bg-gray-50 */
 }
-.campaign-card h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #2d3748; /* Cambio de color de texto */
-}
-.campaign-card p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    color: #4a5568; /* Cambio de color de texto */
-}
-/* Estilos para los botones */
-.button {
-    display: inline-block;
-    background-color: #4a5568; /* Cambio de color de fondo */
-    color: blue;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    cursor: pointer; /* Agregado cursor pointer */
+.campaign-image {
+    object-fit: cover;
+    width: 100%;
+    height: 13rem; /* h-52 */
+    background-color: #a0aec0; /* dark:bg-gray-500 */
 }
 
-.button:hover {
-    background-color: #2d3748; /* Cambio de color de fondo al pasar el mouse */
+.campaign-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.5rem; /* p-6 */
 }
 
-/* Estilos para la secciÓn de Metamask */
-.metamask-section {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+.campaign-title {
+    flex: 1;
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem; /* py-2 */
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    line-height: 1.75rem; /* leading-snug */
 }
 
-.metamask-section button {
-    background-color: #4299e1; /* Cambio de color de fondo */
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.campaign-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.testimonial-section {
+    background-color: #ffffff; /* bg-white */
+    dark:bg-gray-900;
+    padding: 6rem 0; /* px-6 py-10 */
 }
 
-.metamask-section button:hover {
-    background-color: #3182ce; /* Cambio de color de fondo al pasar el mouse */
-}
-/* Estilos para el encabezado */
-
-/* Estilos para las tarjetas de campaña */
-.campaign-card {
-    background-color: #edf2f7; /* Cambio de color de fondo */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
+.testimonial-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 960px; /* container */
+    margin: auto;
 }
 
-.campaign-card h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #2d3748; /* Cambio de color de texto */
+.testimonial-image {
+    width: 100%;
+    max-width: 600px; /* lg:w-1/2 */
+    height: auto;
+    border-radius: 0.5rem; /* rounded-lg */
+}
+.testimonial-text {
+    margin-top: 2rem; /* mt-8 */
+    text-align: center;
+}
+.testimonial-title {
+    font-size: 3rem; /* text-5xl */
+    font-weight: 600; /* font-semibold */
+    color: #4299e1; /* text-blue-500 */
+}
+.testimonial-description {
+    margin-top: 1.5rem; /* mt-6 */
+    max-width: 30rem; /* max-w-lg */
+    color: #4b5563; /* text-gray-500 */
+    dark:text-gray-400;
+}
+.testimonial-author {
+    margin-top: 2rem; /* mt-6 */
+    font-size: 1.25rem; /* text-lg */
+    font-weight: 500; /* font-medium */
+    color: #4299e1; /* text-blue-500 */
+}
+.testimonial-position {
+    margin-top: 0.5rem; /* mt-2 */
+    color: #4b5563; /* text-gray-600 */
+    dark:text-gray-300;
+}
+.testimonial-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem; /* mt-12 */
+}
+.testimonial-button {
+    padding: 0.5rem; /* p-2 */
+    transition: background-color 0.3s ease; /* transition-colors duration-300 */
+    border: 2px solid #cbd5e0; /* border */
+    border-radius: 50%; /* rounded-full */
+}
+.testimonial-button-left {
+    margin-right: 1rem; /* mr-6 */
+}
+.testimonial-button:hover {
+    background-color: #f7fafc; /* hover:bg-gray-100 */
+}
+.testimonial-icon {
+    width: 1.5rem; /* w-6 */
+    height: 1.5rem; /* h-6 */
+    color: #4b5563; /* text-gray-800 */
+    dark:border-gray-700;
+    dark:text-gray-200;
+}
+.container {
+    max-width: 7xl;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
-.campaign-card p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    color: #4a5568; /* Cambio de color de texto */
+/* Estilos para la sección de preguntas frecuentes */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 20px; /* Espacio entre las tarjetas */
 }
 
-/* Estilos para los botones */
-.button {
-    display: inline-block;
-    background-color: #4a5568; /* Cambio de color de fondo */
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    cursor: pointer; /* Agregado cursor pointer */
+.faq-item {
+    background-color: #f3f4f6; /* Color de fondo de las tarjetas */
+    border-radius: 10px; /* Borde redondeado */
+    padding: 20px; /* Espaciado interno */
 }
 
-.button:hover {
-    background-color: #2d3748; /* Cambio de color de fondo al pasar el mouse */
+.faq-icon {
+    margin-bottom: 10px; /* Espacio entre el icono y el texto */
 }
 
-/* Estilos para la sección de Metamask */
-.metamask-section {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+.faq-question {
+    font-size: 1.2em; /* Tamaño de fuente de la pregunta */
+    margin-bottom: 10px; /* Espacio entre la pregunta y la respuesta */
 }
 
-.metamask-section button {
-    background-color: #4299e1; /* Cambio de color de fondo */
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.faq-answer {
+    font-size: 1em; /* Tamaño de fuente de la respuesta */
+    line-height: 1.5; /* Espaciado entre líneas */
 }
 
-.metamask-section button:hover {
-    background-color: #3182ce; /* Cambio de color de fondo al pasar el mouse */
+/* Estilos para la sección de preguntas frecuentes */
+.footer {
+    position: relative;
+    background-color: #edf2f7; /* bg-blueGray-200 */
+    padding-top: 2rem; /* pt-8 */
+    padding-bottom: 1.5rem; /* pb-6 */
+}
+
+.footer .container {
+    max-width: 1140px;
+}
+
+.footer-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 600; /* font-semibold */
+    color: #4a5568; /* text-blueGray-700 */
+}
+
+.footer-description {
+    font-size: 1.125rem; /* text-lg */
+    color: #4a5568; /* text-blueGray-600 */
+    margin-top: 0.5rem; /* mt-0 */
+    margin-bottom: 1rem; /* mb-2 */
+}
+
+.footer-social-links {
+    margin-top: 1rem; /* mt-6 */
+}
+
+.social-button {
+    background-color: #ffffff; /* bg-white */
+    color: #63b3ed; /* text-lightBlue-400 */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 3px 1px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    font-weight: 400; /* font-normal */
+    height: 2.5rem; /* h-10 */
+    width: 2.5rem; /* w-10 */
+    border-radius: 9999px; /* rounded-full */
+    outline: none; /* outline-none */
+    margin-right: 0.5rem; /* mr-2 */
+}
+
+.social-button:hover {
+    color: #81defd; /* text-lightBlue-600 */
+}
+
+.footer-section-title {
+    font-size: 0.75rem; /* text-sm */
+    font-weight: 600; /* font-semibold */
+    color: #a0aec0; /* text-blueGray-500 */
+    margin-bottom: 0.5rem; /* mb-2 */
+    text-transform: uppercase; /* uppercase */
+}
+
+.footer-links {
+    list-style: none; /* list-unstyled */
+    padding-left: 0; /* pl-0 */
+}
+
+.footer-link {
+    font-size: 0.875rem; /* text-sm */
+    color: #4a5568; /* text-blueGray-600 */
+    font-weight: 600; /* font-semibold */
+}
+
+.footer-link:hover {
+    color: #2d3748; /* hover:text-blueGray-800 */
+}
+
+.footer-divider {
+    border-color: #a0aec0; /* border-blueGray-300 */
+    margin-top: 2rem; /* my-6 */
+}
+
+.footer-copyright {
+    font-size: 0.875rem; /* text-sm */
+    color: #a0aec0; /* text-blueGray-500 */
+    font-weight: 600; /* font-semibold */
+}
+
+.current-year {
+    color: #a0aec0; /* text-blueGray*/
 }
