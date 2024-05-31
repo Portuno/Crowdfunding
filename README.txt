@@ -1,28 +1,98 @@
-REMIX DEFAULT WORKSPACE
+# Crowdfunding Smart Contract
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+Este proyecto implementa una plataforma de crowdfunding utilizando contratos inteligentes en la blockchain de Ethereum. El objetivo es permitir a los usuarios crear campañas de crowdfunding, contribuir a campañas existentes y gestionar los fondos de manera transparente y segura.
 
-This workspace contains 3 directories:
+# Características
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+- **Crear Campañas:** Los usuarios pueden crear nuevas campañas de crowdfunding especificando un objetivo de financiamiento y una fecha límite.
+- **Contribuir a Campañas:** Los usuarios pueden contribuir a las campañas con Ether.
+- **Retirar Fondos:** El creador de la campaña puede retirar los fondos recaudados si se alcanza el objetivo de financiamiento dentro del tiempo límite.
+- **Reembolsos:** Si la campaña no alcanza su objetivo de financiamiento, los contribuyentes pueden retirar sus contribuciones.
 
-SCRIPTS
+# Tecnologías Utilizadas
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+- **Solidity:** Lenguaje de programación para contratos inteligentes.
+- **Hardhat:** Entorno de desarrollo para Ethereum.
+- **React:** Biblioteca de JavaScript para la construcción de interfaces de usuario.
+- **Ethers.js:** Biblioteca para interactuar con la blockchain de Ethereum.
+- **Metamask:** Extensión de navegador para interactuar con Ethereum.
 
-For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+# Requisitos Previos
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+- Node.js
+- npm o yarn
+- Metamask
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+# Instalación
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+1. Clona el repositorio:
+
+    ```sh
+    git clone https://github.com/legosiOriginal/crowdfunding-smart-contract.git
+    cd crowdfunding-smart-contract
+    ```
+
+2. Instala las dependencias del proyecto:
+
+    ```sh
+    npm install
+    ```
+
+    o
+
+    ```sh
+    yarn install
+    ```
+
+3. Compila los contratos inteligentes:
+
+    ```sh
+    npx hardhat compile
+    ```
+
+4. Despliega los contratos en una red de prueba (por ejemplo, Rinkeby):
+
+    ```sh
+    npx hardhat run scripts/deploy.js --network rinkeby
+    ```
+
+5. Inicia la aplicación web:
+
+    ```sh
+    npm start
+    ```
+
+    o
+
+    ```sh
+    yarn start
+    ```
+
+# Uso
+
+1. Abre Metamask y conéctate a la red de prueba que estás utilizando (por ejemplo, Rinkeby).
+2. Abre la aplicación web en tu navegador.
+3. Crea una nueva campaña de crowdfunding especificando el objetivo de financiamiento y la fecha límite.
+4. Contribuye a una campaña existente ingresando la cantidad de Ether que deseas donar.
+5. Si eres el creador de una campaña y se ha alcanzado el objetivo de financiamiento, puedes retirar los fondos.
+6. Si una campaña no alcanza su objetivo, los contribuyentes pueden retirar sus contribuciones.
+
+# Estructura del Proyecto
+
+- `contracts/`: Contratos inteligentes en Solidity.
+- `scripts/`: Scripts para desplegar los contratos.
+- `test/`: Pruebas para los contratos inteligentes.
+- `src/`: Código fuente de la aplicación web.
+
+# Contribuciones
+
+Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request para discutir cualquier cambio que desees realizar.
+
+# Licencia
+
+Este proyecto está licenciado bajo la [MIT License](LICENSE).
+
+# Contacto
+
+- **Autor:** legosiOriginal
+- **Correo Electrónico:** legosi.btc@gmail.com
