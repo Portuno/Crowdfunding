@@ -135,8 +135,7 @@
 .container {
     padding: 1.5rem; /* p-6 */
     margin-left: auto;
-    margin-right: auto;
-    space-y: 2rem; /* space-y-8 */
+    margin-right: auto 
 }
 
 .text-center {
@@ -151,9 +150,7 @@
     font-size: 0.875rem; /* text-sm */
     color: #718096; /* dark:text-gray-600 */
 }
-.donate{
-    background-color: red;
-}
+
 .campaigns-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -199,9 +196,8 @@
     justify-content: space-between;
 }
 .testimonial-section {
-    background-color: #ffffff; /* bg-white */
-    dark:bg-gray-900;
-    padding: 6rem 0; /* px-6 py-10 */
+    background-color: rgb(223, 227, 233); /* bg-white */
+    padding: 4rem 0; /* px-6 py-10 */
 }
 
 .testimonial-content {
@@ -231,8 +227,7 @@
 .testimonial-description {
     margin-top: 1.5rem; /* mt-6 */
     max-width: 30rem; /* max-w-lg */
-    color: #4b5563; /* text-gray-500 */
-    dark:text-gray-400;
+    color: #4d5055; /* text-gray-500 */
 }
 .testimonial-author {
     margin-top: 2rem; /* mt-6 */
@@ -242,8 +237,7 @@
 }
 .testimonial-position {
     margin-top: 0.5rem; /* mt-2 */
-    color: #4b5563; /* text-gray-600 */
-    dark:text-gray-300;
+    color: #4d5055; /* text-gray-600 */
 }
 .testimonial-buttons {
     display: flex;
@@ -266,9 +260,7 @@
 .testimonial-icon {
     width: 1.5rem; /* w-6 */
     height: 1.5rem; /* h-6 */
-    color: #4b5563; /* text-gray-800 */
-    dark:border-gray-700;
-    dark:text-gray-200;
+    color: #4b5563 /* text-gray-800 */
 }
 .container {
     max-width: 7xl;
@@ -276,6 +268,16 @@
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Estilos para la sección de preguntas frecuentes */
@@ -289,20 +291,41 @@
     background-color: #f3f4f6; /* Color de fondo de las tarjetas */
     border-radius: 10px; /* Borde redondeado */
     padding: 20px; /* Espaciado interno */
+    display: flex; /* Usar flexbox para alineación */
+    flex-direction: column; /* Asegurar que todo esté en una columna */
+}
+
+.faq-header {
+    display: flex; /* Usar flexbox para alinear el icono y la pregunta */
+    align-items: center; /* Alinear verticalmente el icono y la pregunta */
+    margin-bottom: 10px; /* Espacio entre el encabezado y la respuesta */
 }
 
 .faq-icon {
-    margin-bottom: 10px; /* Espacio entre el icono y el texto */
+    width: 40px; /* Tamaño del icono */
+    height: 40px; /* Tamaño del icono */
+    border-radius: 50%; /* Hacer el icono redondo */
+    background-color: #007bff; /* Color de fondo del icono */
+    display: flex; /* Centrar el contenido del icono */
+    align-items: center; /* Centrar el contenido del icono */
+    justify-content: center; /* Centrar el contenido del icono */
+    margin-right: 10px; /* Espacio entre el icono y el texto */
 }
 
 .faq-question {
     font-size: 1.2em; /* Tamaño de fuente de la pregunta */
-    margin-bottom: 10px; /* Espacio entre la pregunta y la respuesta */
+    margin: 0; /* Eliminar margen inferior */
 }
 
 .faq-answer {
     font-size: 1em; /* Tamaño de fuente de la respuesta */
     line-height: 1.5; /* Espaciado entre líneas */
+}
+
+/* Opcional: estilo adicional para el ícono */
+.faq-icon img {
+    max-width: 100%; /* Asegurarse de que la imagen se ajuste al contenedor */
+    border-radius: 50%; /* Hacer la imagen redonda */
 }
 
 /* Estilos para la sección de preguntas frecuentes */

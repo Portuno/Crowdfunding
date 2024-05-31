@@ -146,7 +146,8 @@
     <section>
     <section class="faq-section">
         <div class="container">
-            <h1 class="faq-title">Preguntas frecuentes.</h1>
+            <h1 class="faq-title text-center text-2xl font-bold mb-6 fade-in">Preguntas frecuentes.</h1>
+            <div class="faq-header flex items-center mb-4"></div>
             <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-icon bg-blue-600">
@@ -155,7 +156,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h1 class="faq-question">¿Qué es el crowdfunding?</h1>
+                        <br><h1 class="faq-question">¿Qué es el crowdfunding?</h1><br>
                         <p class="faq-answer">El crowdfunding es un modelo de financiación colectiva que permite a individuos o empresas recaudar fondos para proyectos, productos o causas a través de la contribución de un gran número de personas, generalmente a través de plataformas en línea especializadas.</p>
                     </div>
                 </div>
@@ -167,7 +168,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h1 class="faq-question">¿Cuáles son los tipos más comunes de crowdfunding?</h1>
+                        <br><h1 class="faq-question">¿Cuáles son los tipos más comunes de crowdfunding?</h1><br>
                         <p class="faq-answer">Los tipos más comunes de crowdfunding son:<br>Donaciones: Las personas contribuyen a una causa sin esperar una recompensa tangible.<br>Recompensas: Los contribuyentes reciben recompensas o productos a cambio de su apoyo financiero.</p>
                     </div>
                 </div>
@@ -178,7 +179,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h1 class="faq-question">¿Cuáles son los beneficios del crowdfunding?</h1>
+                        <br><h1 class="faq-question">¿Cuáles son los beneficios del crowdfunding?</h1><br>
                         <p class="faq-answer">Algunos beneficios del crowdfunding incluyen:<br>Acceso a financiación sin depender de instituciones financieras tradicionales.<br>Validación del interés en un proyecto antes de su lanzamiento.<br>Oportunidad de involucrar a la comunidad en el proceso de desarrollo.<br>Potencial para crear conexiones y construir una base de seguidores.</p>
                     </div>
                 </div>
@@ -189,7 +190,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h1 class="faq-question">¿Cuáles son los riesgos asociados con el crowdfunding?</h1>
+                        <br><h1 class="faq-question">¿Cuáles son los riesgos asociados con el crowdfunding?</h1><br>
                         <p class="faq-answer">No alcanzar la meta de financiamiento y perder tiempo y recursos.<br>Problemas legales o de propiedad intelectual si no se gestionan adecuadamente.<br>Responsabilidad hacia los patrocinadores para cumplir promesas de recompensas o productos.<br>Potencial competencia desleal o copia de ideas por parte de otros.</p>
                     </div>
                 </div>
@@ -246,7 +247,7 @@
         </div>
     </div>
 </footer>
-<script type="module">
+<script type="module">/*Este no se si funciona aca pero es metamask*/
 import { rskTestnet, rskMainnet, connectProviderTo } from './app.js';
 
 export default {
@@ -261,6 +262,23 @@ export default {
   }
 }
 </script>
+<script>/*Este es para animacion con scroll de FAQ*/
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1 // Activar cuando el 10% del elemento sea visible
+        });
+    
+        document.querySelectorAll('.faq-title').forEach(element => {
+            observer.observe(element);
+        });
+    });
+    </script>
 </body>
 </html>
 
