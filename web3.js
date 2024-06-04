@@ -1,4 +1,4 @@
-import Web3 from './main';
+import web3 from web3
 
 export const rskTestnet = {
   chainName: 'Rootstock Testnet',
@@ -38,7 +38,7 @@ export const getWeb3 = async () => {
               method: 'wallet_addEthereumChain',
               params: [{
                 chainId: RSK_TESTNET_CHAIN_ID,
-                rpcUrl: RSK_TESTNET_RPC_URL,
+                rpcUrls: [RSK_TESTNET_RPC_URL],
                 chainName: 'RSK Testnet',
                 nativeCurrency: {
                   name: 'tR-BTC',

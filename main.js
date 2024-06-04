@@ -1,14 +1,13 @@
-import { connectProviderTo } from './app.js';
-import { getWeb3 } from './web3.js';
+import {getWeb3} from './web3.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const web3 = await getWeb3();
         console.log("Web3 instance:", web3);
-        // Aquí puedes realizar operaciones de Web3, como interactuar con contratos inteligentes, etc.
+        // Here you can interact with smart contracts
     } catch (error) {
         console.error("Error initializing Web3:", error);
     }
 
-    // Agregar otras inicializaciones y event listeners aquí
+    // Add other initializations and event listeners here
 });
